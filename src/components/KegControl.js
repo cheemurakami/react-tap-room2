@@ -6,15 +6,7 @@ class KegControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      masterKegList: [
-        { name: "fake keg", brand: "fake brand", price: 10, alcoholContent: 5 },
-        {
-          name: "fake keg2",
-          brand: "fake brand",
-          price: 10,
-          alcoholContent: 5,
-        },
-      ],
+      masterKegList: [],
       showForm: false,
     };
   }
@@ -28,24 +20,25 @@ class KegControl extends React.Component {
   }; //[]updating with a new keg, array of kegs
 
   handleClick = () => {
-    this.setState({showForm: true});
+    this.setState(prevState => ({
+      showForm: !prevState.showForm
+    }));
   }
 
   render() {
     let currentPage = null;
-    let addKegButton = null;
+    let buttonText = null;
     if (this.state.showForm) {
-      currentPage = (
-        <KegForm onNewKegCreation={this.handleAddingNewKegToList} />
-      );
+      currentPage = <KegForm onNewKegCreation={this.handleAddingNewKegToList} />
+      buttonText = "Back"
     } else {
       currentPage = <KegList kegList={this.state.masterKegList} />;
-      addKegButton = <button onClick={this.handleClick}>Add Keg</button>
+      buttonText = "Add Keg"
     }
     return (
       <React.Fragment>
         {currentPage}
-        {addKegButton}
+        <button onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
     );
   }
