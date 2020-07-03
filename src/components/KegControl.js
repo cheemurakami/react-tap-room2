@@ -1,5 +1,6 @@
 import React from 'react'
 import KegList from './KegList'
+import KegForm from './KegForm'
 
 class KegControl extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class KegControl extends React.Component {
     return (
       <React.Fragment>
         <KegList kegList = {this.state.masterKegList}/>
+        <KegForm />
       </React.Fragment>
     )
   }
