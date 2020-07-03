@@ -38,18 +38,30 @@ class KegControl extends React.Component {
         const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
     this.setState({selectedKeg: selectedKeg});
   }
+  
+  handleSellButton = (updatedKeg) => {
+    const editedMasterKegList = this.state.masterKegList
+      .filter(keg => keg.id !== this.state.selectedKeg.id)
+      .concat(updatedKeg);
+
+    this.setState({
+        masterKegList: editedMasterKegList,
+        selectedTicket: null
+      });
+  }
+
 
   render() {
     let currentPage = null;
     let buttonText = null;
     if (this.state.selectedKeg != null){
-      currentPage = <KegDetail keg={this.state.selectedKeg} />
+      currentPage = <KegDetail keg={this.state.selectedKeg} handleSellButton={this.handleSellButton}/>
       buttonText = "Return to Keg List"
     } else if (this.state.showForm) {
       currentPage = <KegForm onNewKegCreation={this.handleAddingNewKegToList} />
       buttonText = "Back"
     } else {
-      currentPage = <KegList kegList={this.state.masterKegList} whenKegClicked = {this.whenKegClicked}/>;
+      currentPage = <KegList kegList={this.state.masterKegList} whenKegClicked = {this.whenKegClicked} />;
       buttonText = "Add Keg"
     }
     return (
