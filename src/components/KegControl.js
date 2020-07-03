@@ -22,9 +22,16 @@ class KegControl extends React.Component {
   }; //[]updating with a new keg, array of kegs
 
   handleClick = () => {
-    this.setState(prevState => ({
-      showForm: !prevState.showForm
-    }));
+    if (this.state.selectedKeg != null){
+      this.setState({
+        showForm: false,
+        selectedKeg: null
+      });
+    } else {
+      this.setState(prevState => ({
+        showForm: !prevState.showForm
+      }));
+    }
   }
 
   whenKegClicked = (id) => {
