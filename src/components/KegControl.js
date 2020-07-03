@@ -24,16 +24,27 @@ class KegControl extends React.Component {
     this.setState({ masterKegList: newMasterKegList });
   }; //[]updating with a new keg, array of kegs
 
+  handleClick = () => {
+    this.setState({showForm: true});
+  }
+
   render() {
     let currentPage = null;
+    let addKegButton = null;
     if (this.state.showForm) {
       currentPage = (
         <KegForm onNewKegCreation={this.handleAddingNewKegToList} />
       );
     } else {
       currentPage = <KegList kegList={this.state.masterKegList} />;
+      addKegButton = <button onClick={this.handleClick}>Add Keg</button>
     }
-    return <React.Fragment>{currentPage}</React.Fragment>;
+    return (
+      <React.Fragment>
+        {currentPage}
+        {addKegButton}
+      </React.Fragment>
+    );
   }
 }
 
