@@ -20,6 +20,7 @@ function KegList(props) {
     </React.Fragment>
   );
 }
+
 KegList.propTypes = {
   masterKegList: PropTypes.array
 };

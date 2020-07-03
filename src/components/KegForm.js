@@ -2,7 +2,6 @@ import React from 'react'
 import { v4 } from 'uuid';
 import PropTypes from 'prop-types'
 
-
 function KegForm(props) {
   function handleKegFormSubmission(event) {
     event.preventDefault();
@@ -12,7 +11,7 @@ function KegForm(props) {
       price: event.target.price.value,
       alcoholContent: event.target.alcoholContent.value,
       id: v4(),
-      pints: 12,
+      pints: 124,
       pintsMsg: ""
     })
   }
@@ -47,6 +46,7 @@ function KegForm(props) {
     </React.Fragment>
   )
 }
+
 KegForm.propTypes = {
   onNewKegCreation: PropTypes.func
 }

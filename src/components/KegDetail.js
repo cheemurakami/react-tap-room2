@@ -2,18 +2,23 @@ import React from 'react'
 import PropTypes from "prop-types";
 
 function KegDetail(props) {
+
   function handleButtonClick(){
-    if(props.keg.pints > 10) {
-      props.keg.pints -= 1
-    } else if (props.keg.pints <= 10 && props.keg.pints > 1){
-      props.keg.pints -= 1
-      props.keg.pintsMsg = "Almost Empty!"
-      console.log(props.keg.pintsMsg)
-    } else {
-      props.keg.pints = "Out of Stock"
-      props.keg.pintsMsg = ""
-    }
     props.handleSellButton(props.keg)
+      if(props.keg.pints > 10) {
+        props.keg.pints -= 1
+      } else if (props.keg.pints <= 10 && props.keg.pints > 1){
+        props.keg.pints -= 1
+        props.keg.pintsMsg = "Almost Empty!"
+        console.log(props.keg.pintsMsg)
+      } else {
+        props.keg.pints = "Out of Stock"
+        props.keg.pintsMsg = ""
+      }
+  }
+
+  function handleDeleteButtonClick(){
+    props.handleDeleteButton(props.keg.id)
   }
 
   return (
@@ -27,12 +32,16 @@ function KegDetail(props) {
       <p>{props.keg.pintsMsg}</p>
       
       <button onClick={handleButtonClick}>Sell this Keg</button>
+      <button onClick={handleDeleteButtonClick}>Delete this Keg</button>
       <hr/>
     </React.Fragment>
   )
 }
 
-export default KegDetail
 KegDetail.propTypes = {
-  keg: PropTypes.object
+  keg: PropTypes.object,
+  handleSellButton: PropTypes.func,
+  handleDeletButton: PropTypes.func
 };
+
+export default KegDetail
