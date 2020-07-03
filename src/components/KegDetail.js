@@ -3,7 +3,11 @@ import PropTypes from "prop-types";
 
 function KegDetail(props) {
   function handleButtonClick(){
-    props.keg.pints -= 1
+    if(props.keg.pints > 1) {
+      props.keg.pints -= 1
+    } else {
+      props.keg.pints = "Out of stock"
+    }
     props.handleSellButton(props.keg)
   }
 
