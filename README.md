@@ -29,7 +29,7 @@ _This application is for check stocks of kegs in a store._
 | 6. As a user, I want the option to edit a keg's properties after entering them just in case I make a mistake. []|
 | 7. As a user, I want to be able to delete a keg. []|
 | 8. As a user, I want a keg to update to say "Out of Stock" once it's empty. []|
-| 9. As a user, I want kegs with less than 10 pints to include a message that says "Almost Empty" so I can try a pint before it's gone. [v]|
+| 9. As a user, I want kegs with less than 10 pints to include a message that says "Almost Empty" so I can try a pint before it's gone. [√]|
 | 10. As a user, I want to have kegs prices to be color-coded for easy readability. This could be based on their price, the style of beer or kombucha, or the amount of pints left. []|
 | 11. As a user, I want this application to be nicely styled. (Use stylesheets and CSS objects!) []|
 

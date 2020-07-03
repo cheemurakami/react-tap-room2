@@ -12,7 +12,8 @@ function KegForm(props) {
       price: event.target.price.value,
       alcoholContent: event.target.alcoholContent.value,
       id: v4(),
-      pints: 124
+      pints: 12,
+      pintsMsg: ""
     })
   }
 
