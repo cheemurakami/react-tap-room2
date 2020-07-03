@@ -1,10 +1,11 @@
 import React from 'react';
+import KegControl from './KegControl';
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <React.Fragment>
+      <KegControl />
+    </React.Fragment>
   );
 }
 

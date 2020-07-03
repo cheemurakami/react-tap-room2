@@ -1,68 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# _Tap room_
 
-## Available Scripts
+#### _A practice application using React. DATE 7/2/20_
 
-In the project directory, you can run:
+#### By _**Chisato Murakami**_
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+_This application will a simple Food Products Website._ 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Setup/Installation Requirements
 
-### `npm test`
+* _Clone Repository from GitHub : https://github.com/cheemurakami/react-tap-room
+* _Open folder in Virtual Studio Code (or your text editor of choice)_
+* _Open your terminal in Virtual Studio Code & type code . this will open all files associated with this app. 
+* _Before you initialize GIT, be sure to delete the already exisiting .git file by running this command in your terminal $rm -rf .git_
+* _Create your own repository and push new changes to GitHub_
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Behavior Driven Development 
 
-### `npm run build`
+|   Behavior Description        |
+|-------------------------------|
+| 1. As a user, I want to see a list/menu of all available kegs. For each keg, I want to see its name, brand, price and alcoholContent (or perhaps something like flavor for a kombucha store). []|
+| 2. As a user, I want to submit a form to add a new keg to a list. []|
+| 3. As a user, I want to be able to click on a keg to see its detail page. []|
+| 4. As a user, I want to see how many pints are left in a keg. Hint: A full keg has roughly 124 pints. []|
+| 5. As a user, I want to be able to click a button next to a keg whenever I sell a pint of it. This should decrease the number of pints left by 1. Pints should not be able to go below 0. []|
+| **Further Exploration**|
+| 6. As a user, I want the option to edit a keg's properties after entering them just in case I make a mistake. []|
+| 7. As a user, I want to be able to delete a keg. []|
+| 8. As a user, I want a keg to update to say "Out of Stock" once it's empty. []|
+| 9. As a user, I want kegs with less than 10 pints to include a message that says "Almost Empty" so I can try a pint before it's gone. [v]|
+| 10. As a user, I want to have kegs prices to be color-coded for easy readability. This could be based on their price, the style of beer or kombucha, or the amount of pints left. []|
+| 11. As a user, I want this application to be nicely styled. (Use stylesheets and CSS objects!) []|
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Known Bugs
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+_No known bugs at this time_
 
-### `npm run eject`
+## Support and contact details
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+_If you have any questions or any issues please feel free to submit an issue here: kiwipom1031@gmail.com_
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+_JavaScript, React_ 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### Licenses
+*MIT LICENSE*
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Copyright (c) 2020 **Chisato Murakami**
