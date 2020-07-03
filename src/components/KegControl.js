@@ -1,6 +1,7 @@
 import React from "react";
 import KegList from "./KegList";
 import KegForm from "./KegForm";
+import KegDetail from "./KegDetail";
 
 class KegControl extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class KegControl extends React.Component {
     this.state = {
       masterKegList: [],
       showForm: false,
+      selectedKeg: null
     };
   }
 
@@ -25,14 +27,22 @@ class KegControl extends React.Component {
     }));
   }
 
+  whenKegClicked = (id) => {
+        const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
+    this.setState({selectedKeg: selectedKeg});
+  }
+
   render() {
     let currentPage = null;
     let buttonText = null;
-    if (this.state.showForm) {
+    if (this.state.selectedKeg != null){
+      currentPage = <KegDetail keg={this.state.selectedKeg} />
+      buttonText = "Return to Keg List"
+    } else if (this.state.showForm) {
       currentPage = <KegForm onNewKegCreation={this.handleAddingNewKegToList} />
       buttonText = "Back"
     } else {
-      currentPage = <KegList kegList={this.state.masterKegList} />;
+      currentPage = <KegList kegList={this.state.masterKegList} whenKegClicked = {this.whenKegClicked}/>;
       buttonText = "Add Keg"
     }
     return (
