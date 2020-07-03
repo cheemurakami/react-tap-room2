@@ -1,12 +1,17 @@
 import React from 'react'
 import { v4 } from 'uuid';
+import PropTypes from 'prop-types'
 
-function KegForm() {
+
+function KegForm(props) {
   function handleKegFormSubmission(event) {
     event.preventDefault();
-    console.log(event.target.names.value);
-    console.log(event.target.location.value);
-    console.log(event.target.issue.value);
+    props.onNewKegCreation({
+      name: event.target.name.value,
+      brand: event.target.brand.value,
+      price: event.target.price.value,
+      alcoholContent: event.target.alcoholContent.value,
+    })
   }
 
   return (
@@ -39,5 +44,7 @@ function KegForm() {
     </React.Fragment>
   )
 }
-
+KegForm.propTypes = {
+  onNewKegCreation: PropTypes.func
+}
 export default KegForm
