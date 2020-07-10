@@ -22,24 +22,17 @@ class KegControl extends React.Component {
     dispatch(action);
     const action2 = a.toggleForm();
     dispatch(action2);
-    // this.setState({ 
-    //   showForm: false 
-    // });
-  }; //[]updating with a new keg, array of kegs
+  }; 
 
   handleClick = () => {
     if (this.state.selectedKeg != null){
       this.setState({
-        // showForm: false,
         selectedKeg: null
       });
     } else {
       const { dispatch } = this.props;
       const action = a.toggleForm();
       dispatch(action);
-      // this.setState(prevState => ({
-      //   showForm: !prevState.showForm
-      // }));
     }
   }
 
@@ -53,7 +46,6 @@ class KegControl extends React.Component {
       .filter(keg => keg.id !== this.state.selectedKeg.id)
       .concat(updatedKeg);
     this.setState({
-        // masterKegList: editedMasterKegList,
         selectedTicket: null
       });
   }
@@ -61,7 +53,6 @@ class KegControl extends React.Component {
   handleDeleteButton = (id) => {
     const newMasterKegList = this.props.masterList.filter(ticket => ticket.id !== id)
     this.setState({
-      // masterKegList: newMasterKegList,
       selectedKeg: null
     });
   }
