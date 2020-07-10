@@ -14,12 +14,6 @@ const tapListReducer = (state = {}, action) => {
           whenKegClicked: whenKegClicked
         }
       }); //{1: {name: "keg1"}, 2: {name: "keg2"}}
-    case c.SELECT_KEG:
-      const selectedKeg = state[id]
-      return Object.assign({}, state, {
-        selectedKeg: selectedKeg
-      })
-      //{1: {name: "keg1"}, 2: {name: "keg2"}, selectedKeg: {name: "keg1"}}
     default:
       return state; //{}
   };

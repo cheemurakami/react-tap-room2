@@ -26,10 +26,15 @@ class KegControl extends React.Component {
 
   handleClick = () => {
     if (this.props.selectedKeg != null){
+      // for return to list button
+      const { dispatch } = this.props;
+      const action = a.unselectKeg();
+      dispatch(action);
       // this.setState({
       //   selectedKeg: null
       // });
     } else {
+      // for Add Keg and Back Button
       const { dispatch } = this.props;
       const action = a.toggleForm();
       dispatch(action);
@@ -39,7 +44,8 @@ class KegControl extends React.Component {
   whenKegClicked = (id) => {
     console.log('keg is clicked')
     const { dispatch } = this.props;
-    const action = a.selectKeg(id);
+    const keg = this.props.masterList[id]
+    const action = a.selectKeg(keg);
     dispatch(action);
   }
   
@@ -47,16 +53,16 @@ class KegControl extends React.Component {
     const editedMasterKegList = this.props.masterList
       .filter(keg => keg.id !== this.props.selectedKeg.id)
       .concat(updatedKeg);
-    this.setState({
-        selectedTicket: null
-      });
+      const { dispatch } = this.props;
+      const action = a.unselectKeg();
+      dispatch(action);
   }
 
   handleDeleteButton = (id) => {
     const newMasterKegList = this.props.masterList.filter(ticket => ticket.id !== id)
-    this.setState({
-      selectedKeg: null
-    });
+    const { dispatch } = this.props;
+    const action = a.unselectKeg();
+    dispatch(action);
   }
 
   render() {
@@ -90,7 +96,7 @@ const mapStateToProps = state => {
   return {
     masterList: state.masterList,
     showForm: state.showForm,
-    selectedKeg: state.masterList.selectedKeg
+    selectedKeg: state.selectedKeg
   }
 }
 KegControl = connect(mapStateToProps)(KegControl)
