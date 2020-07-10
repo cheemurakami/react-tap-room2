@@ -19,4 +19,19 @@ describe('tap room actions', () => {
     }
     )
   });
+
+  it ('selectKeg should create SELECT_KEG action', () => {
+    const keg = {name: "chee keg", brand: 'fake brand', price: 20, alcoholContent: 5, id: 1}
+    expect(actions.selectKeg(keg)).toEqual({
+      type: 'SELECT_KEG',
+      keg: keg
+    }
+    )
+  });
+  it ('unselectKeg should create UNSELECT_KEG action', () => {  
+    expect(actions.unselectKeg()).toEqual({
+      type: 'UNSELECT_KEG', 
+    }
+    )
+  });
 });
