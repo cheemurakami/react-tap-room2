@@ -11,35 +11,35 @@ class KegControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      
-      showForm: false,
+      // showForm: false,
       selectedKeg: null
     };
   }
 
   handleAddingNewKegToList = (newKeg) => {
     const { dispatch } = this.props;
-    console.log(newKeg)
-
     const action = a.addKeg(newKeg);
     dispatch(action);
-    this.setState({ 
-      showForm: false 
-    });
+    const action2 = a.toggleForm();
+    dispatch(action2);
+    // this.setState({ 
+    //   showForm: false 
+    // });
   }; //[]updating with a new keg, array of kegs
 
   handleClick = () => {
-    console.log('hi')
-
     if (this.state.selectedKeg != null){
       this.setState({
-        showForm: false,
+        // showForm: false,
         selectedKeg: null
       });
     } else {
-      this.setState(prevState => ({
-        showForm: !prevState.showForm
-      }));
+      const { dispatch } = this.props;
+      const action = a.toggleForm();
+      dispatch(action);
+      // this.setState(prevState => ({
+      //   showForm: !prevState.showForm
+      // }));
     }
   }
 
@@ -72,7 +72,7 @@ class KegControl extends React.Component {
     if (this.state.selectedKeg != null){
       currentPage = <KegDetail keg={this.state.selectedKeg} handleSellButton={this.handleSellButton} handleDeleteButton = {this.handleDeleteButton}/>
       buttonText = "Return to Keg List"
-    } else if (this.state.showForm) {
+    } else if (this.props.showForm) {
       currentPage = <KegForm onNewKegCreation={this.handleAddingNewKegToList} />
       buttonText = "Back"
     } else {
@@ -95,7 +95,8 @@ const mapStateToProps = state => {
   console.log(state)
   console.log(state.masterList)
   return {
-    masterList: state
+    masterList: state.masterList,
+    showForm: state.showForm
   }
 }
 KegControl = connect(mapStateToProps)(KegControl)

@@ -12,3 +12,7 @@ export const addKeg = (keg) => {
     whenKegClicked: whenKegClicked
   }
 };
+
+export const toggleForm = () => ({
+  type: c.TOGGLE_FORM
+})
