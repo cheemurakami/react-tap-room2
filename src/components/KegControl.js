@@ -11,7 +11,7 @@ class KegControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // masterKegList: [],
+      
       showForm: false,
       selectedKeg: null
     };
@@ -81,8 +81,10 @@ class KegControl extends React.Component {
     }
     return (
       <React.Fragment>
-        {currentPage}
-        <button onClick={this.handleClick}>{buttonText}</button>
+        <div className="container">
+          {currentPage}
+          <button variant="outline-light" onClick={this.handleClick}>{buttonText}</button>
+        </div>
       </React.Fragment>
     );
   }
