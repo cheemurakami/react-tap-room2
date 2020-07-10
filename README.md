@@ -1,6 +1,6 @@
 # _Tap room_
 
-#### _A practice application using React. DATE 7/2/20_
+#### _A practice application using React. DATE 7/10/20_
 
 #### By _**Chisato Murakami**_
 
