@@ -2,26 +2,35 @@ import React from "react";
 import KegList from "./KegList";
 import KegForm from "./KegForm";
 import KegDetail from "./KegDetail";
+import PropTypes from "prop-types";
+import { connect } from 'react-redux';
+import * as a from './../actions';
+
 
 class KegControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      masterKegList: [],
+      // masterKegList: [],
       showForm: false,
       selectedKeg: null
     };
   }
 
   handleAddingNewKegToList = (newKeg) => {
-    const newMasterKegList = this.state.masterKegList.concat(newKeg);
+    const { dispatch } = this.props;
+    console.log(newKeg)
+
+    const action = a.addKeg(newKeg);
+    dispatch(action);
     this.setState({ 
-      masterKegList: newMasterKegList, 
       showForm: false 
     });
   }; //[]updating with a new keg, array of kegs
 
   handleClick = () => {
+    console.log('hi')
+
     if (this.state.selectedKeg != null){
       this.setState({
         showForm: false,
@@ -35,24 +44,24 @@ class KegControl extends React.Component {
   }
 
   whenKegClicked = (id) => {
-        const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
+        const selectedKeg = this.props.masterList[id]
     this.setState({selectedKeg: selectedKeg});
   }
   
   handleSellButton = (updatedKeg) => {
-    const editedMasterKegList = this.state.masterKegList
+    const editedMasterKegList = this.props.masterList
       .filter(keg => keg.id !== this.state.selectedKeg.id)
       .concat(updatedKeg);
     this.setState({
-        masterKegList: editedMasterKegList,
+        // masterKegList: editedMasterKegList,
         selectedTicket: null
       });
   }
 
   handleDeleteButton = (id) => {
-    const newMasterKegList = this.state.masterKegList.filter(ticket => ticket.id !== id)
+    const newMasterKegList = this.props.masterList.filter(ticket => ticket.id !== id)
     this.setState({
-      masterKegList: newMasterKegList,
+      // masterKegList: newMasterKegList,
       selectedKeg: null
     });
   }
@@ -67,7 +76,7 @@ class KegControl extends React.Component {
       currentPage = <KegForm onNewKegCreation={this.handleAddingNewKegToList} />
       buttonText = "Back"
     } else {
-      currentPage = <KegList kegList={this.state.masterKegList} whenKegClicked = {this.whenKegClicked} />;
+      currentPage = <KegList kegList={this.props.masterList} whenKegClicked = {this.whenKegClicked} />;
       buttonText = "Add Keg"
     }
     return (
@@ -77,6 +86,20 @@ class KegControl extends React.Component {
       </React.Fragment>
     );
   }
+}
+
+
+const mapStateToProps = state => {
+  console.log(state)
+  console.log(state.masterList)
+  return {
+    masterList: state
+  }
+}
+KegControl = connect(mapStateToProps)(KegControl)
+
+KegControl.propTypes = {
+  masterList: PropTypes.object
 }
 
 export default KegControl;
