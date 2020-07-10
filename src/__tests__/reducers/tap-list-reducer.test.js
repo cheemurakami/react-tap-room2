@@ -40,4 +40,25 @@ describe ('tapListReducer', () => {
     });
   });
 
+  test('should delete keg from the list', () => {
+    const { name, brand, price, alcoholContent, id, whenKegClicked } = exampleKeg;
+    
+    action = {
+      type: c.DELETE_KEG,
+      id: id,
+    }
+    
+    const list = {
+      [id] : {
+        name: name,
+        brand: brand,
+        price: price,
+        alcoholContent: alcoholContent,
+        id: id,
+        whenKegClicked: whenKegClicked
+      }
+    }
+    expect(tapListReducer(list, action)).toEqual({});
+  });
+
 })

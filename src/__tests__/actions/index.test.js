@@ -34,4 +34,12 @@ describe('tap room actions', () => {
     }
     )
   });
+  it ('deleteKeg should create DELETE_KEG action', () => {  
+    const id = 1
+    expect(actions.deleteKeg(id)).toEqual({
+      type: 'DELETE_KEG',
+      id: id 
+    }
+    )
+  });
 });
