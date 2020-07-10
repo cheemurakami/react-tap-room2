@@ -21,5 +21,9 @@ export const selectKeg = (keg) => ({
   keg: keg
 })
 export const unselectKeg = () => ({
-  type: c.UNSELECT_KEG,
+  type: c.UNSELECT_KEG
+})
+export const deleteKeg = (id) => ({
+  type: c.DELETE_KEG,
+  id: id
 })

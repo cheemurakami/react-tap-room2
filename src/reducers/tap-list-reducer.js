@@ -14,6 +14,10 @@ const tapListReducer = (state = {}, action) => {
           whenKegClicked: whenKegClicked
         }
       }); //{1: {name: "keg1"}, 2: {name: "keg2"}}
+    case c.DELETE_KEG:
+      const newState = {...state}
+      delete newState[id]
+      return newState;
     default:
       return state; //{}
   };

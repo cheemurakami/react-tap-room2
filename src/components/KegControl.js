@@ -8,14 +8,6 @@ import * as a from './../actions';
 
 
 class KegControl extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     showForm: false,
-  //    selectedKeg: null
-  //   };
-  // }
-
   handleAddingNewKegToList = (newKeg) => {
     const { dispatch } = this.props;
     const action = a.addKeg(newKeg);
@@ -59,10 +51,12 @@ class KegControl extends React.Component {
   }
 
   handleDeleteButton = (id) => {
-    const newMasterKegList = this.props.masterList.filter(ticket => ticket.id !== id)
     const { dispatch } = this.props;
-    const action = a.unselectKeg();
+    const action = a.deleteKeg(id);
     dispatch(action);
+
+    const action2 = a.unselectKeg();
+    dispatch(action2);
   }
 
   render() {
