@@ -16,3 +16,7 @@ export const addKeg = (keg) => {
 export const toggleForm = () => ({
   type: c.TOGGLE_FORM
 })
+export const selectKeg = (id) => ({
+  type: c.SELECT_KEG,
+  id: id
+})

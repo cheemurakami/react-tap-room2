@@ -3,7 +3,6 @@ import Keg from './Keg'
 import PropTypes from 'prop-types'
 
 function KegList(props) {
-  console.log(props)
   return (
     <React.Fragment>
       {Object.values(props.kegList).map((keg, index) => {
